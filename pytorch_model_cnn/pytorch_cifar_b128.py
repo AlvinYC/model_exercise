@@ -118,6 +118,13 @@ if __name__ == '__main__':
     optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
     #optimizer = optim.Adam(net.parameters(), lr=0.001)
 
+    #plot image to check content
+    images, _ = next(iter(trainloader))
+    plt.figure(figsize=(16,8))
+    plt.axis('off')
+    plt.imshow(torchvision.utils.make_grid(images/2+0.5, nrow=16).permute((1, 2, 0)))
+    plt.show()
+
     train = True
     #train = False
     if train:
